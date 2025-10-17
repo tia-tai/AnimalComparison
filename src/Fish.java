@@ -44,5 +44,5 @@ public class Fish extends Animals {
         this.comparisonURL = comparisonURL;
     }
 
-    public String toString() {return "All Fish"; }
+    public String toString() {return getName() + " has a max mass of " + getMaxMass() + "lbs"; }
 }
