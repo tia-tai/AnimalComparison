@@ -4,6 +4,14 @@ public class Fish extends Animals {
     private String taxonomicClass;
     private String comparisonURL;
 
+    public Fish(int rank, String name, float length, int maxMass, String imageURL, String binomialName, String taxonomicClass, String comparisonURL) {
+        super(rank, name, length, maxMass);
+        this.imageURL = imageURL;
+        this.binomialName = binomialName;
+        this.taxonomicClass = taxonomicClass;
+        this.comparisonURL = comparisonURL;
+    }
+
     public String getImageURL() {
         return imageURL;
     }
@@ -34,11 +42,6 @@ public class Fish extends Animals {
 
     public void setComparisonURL(String comparisonURL) {
         this.comparisonURL = comparisonURL;
-    }
-
-    public Fish(int rank, String name, float length, int maxMass, String imageURL) {
-        super(rank, name, length, maxMass);
-        this.imageURL = imageURL;
     }
 
     public String toString() {return "All Fish"; }
