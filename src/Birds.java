@@ -37,7 +37,7 @@ class Birds extends Animals{
 
 
     // methods
-    public String toString() {return "All Birds"; }
+    public String toString() {return  getName() + " has a max mass of " + getMaxMass() + "lbs"; }
 
 
 }
