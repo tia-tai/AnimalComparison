@@ -4,6 +4,13 @@ class Birds extends Animals{
     float wingSpan;
     String conservationStatus;
 
+    public Birds(int rank, String name, float length, int maxMass, String scientificlName, float wingSpan, String conservationStatus) {
+        super(rank, name, length, maxMass);
+        this.scientificlName = scientificlName;
+        this.wingSpan = wingSpan;
+        this.conservationStatus = conservationStatus;
+    }
+
     public String getScientificlName() {
         return scientificlName;
     }
@@ -26,11 +33,6 @@ class Birds extends Animals{
 
     public void setConservationStatus(String conservationStatus) {
         this.conservationStatus = conservationStatus;
-    }
-
-    public Birds(int rank, String name, float length, int maxMass, String scientificlName) {
-        super(rank, name, length, maxMass);
-        this.scientificlName = scientificlName;
     }
 
 
