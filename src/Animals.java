@@ -44,6 +44,6 @@ public class Animals {
     }
 
     public String toString() {
-        return "All Animals";
+        return getName() + " has a max mass of " + getMaxMass() + "lb";
     }
 }

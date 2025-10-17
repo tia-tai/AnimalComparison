@@ -15,6 +15,6 @@ public class Mammal extends Animals{
     }
 
     public String toString() {
-        return "All Mammals";
+        return getName() + " has a max mass of " + getMaxMass() + "lb";
     }
 }
