@@ -2,9 +2,9 @@ public class Animals {
     private int rank;
     private String name;
     private float length;
-    private long maxMass;
+    private int maxMass;
 
-    public Animals(int rank, String name, float length, long maxMass) {
+    public Animals(int rank, String name, float length, int maxMass) {
         this.rank = rank;
         this.name = name;
         this.length = length;
@@ -39,7 +39,7 @@ public class Animals {
         return maxMass;
     }
 
-    public void setMaxMass(long maxMass) {
+    public void setMaxMass(int maxMass) {
         this.maxMass = maxMass;
     }
 

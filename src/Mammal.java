@@ -1,7 +1,7 @@
 public class Mammal extends Animals{
-    private long avgMass;
+    private int avgMass;
 
-    public Mammal(int rank, String name, float length, long maxMass, long avgMass) {
+    public Mammal(int rank, String name, float length, int maxMass, int avgMass) {
         super(rank, name, length, maxMass);
         this.avgMass = avgMass;
     }
@@ -10,7 +10,7 @@ public class Mammal extends Animals{
         return avgMass;
     }
 
-    public void setAvgMass(long avgMass) {
+    public void setAvgMass(int avgMass) {
         this.avgMass = avgMass;
     }
 
