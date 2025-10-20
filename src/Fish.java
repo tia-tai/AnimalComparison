@@ -7,6 +7,7 @@ public class Fish extends Animals {
     private String comparisonURL;
     static ArrayList<Fish> fishes = new ArrayList<Fish>();
 
+
     public Fish(int rank, String name, float length, int maxMass, String imageURL, String binomialName, String taxonomicClass, String comparisonURL) {
         super(rank, name, length, maxMass);
         this.imageURL = imageURL;
