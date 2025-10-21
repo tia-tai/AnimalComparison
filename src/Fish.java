@@ -1,4 +1,6 @@
+import java.io.File;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Fish extends Animals {
     private String imageURL;
@@ -58,4 +60,50 @@ public class Fish extends Animals {
     }
 
     public String toString() {return getName() + " has a max mass of " + getMaxMass() + "lbs"; }
+
+
+    public static void readFishData() {
+        File myData = new File("FishData");
+        Scanner myReader = new Scanner(myData);
+        while (myReader.hasNextLine()) {
+            String firstLine = myReader.nextLine();
+            System.out.println(data);
+
+            Scanner lineScanner = new Scanner(dataLine);
+            lineScanner.useDelimiter("\t");
+            // 1     1   Whale Shark   61.7f   47,000 lbs
+
+            int rank = lineScanner.nextInt();
+            String name = lineScanner.nextInt();
+            float length = lineScanner.nextInt();
+            int maxMass = lineScanner.nextInt();
+            int peak = lineScanner.nextInt();
+
+            String revenueChunk = lineScanner.next();
+            revenueChunk = revenueChunk.replace()
+            String imageURL = "https://en.wikipedia.org/wiki/File:Similan_Dive_Center_-_great_whale_shark.jpg";
+            String binomialName = "Rhincodon Typus";
+            String taxonomicClass = "Chondrichthyes";
+            String comparisonURL = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Whaleshark_scale.jpg/250px-Whaleshark_scale.jpg";
+
+            new  Fish(rank, name, length, maxMass, imageURL, binomialName, taxonomicClass, comparisonURL)
+        }
+
+        //create a fish object
+        // 1     1   Whale Shark   61.7f   47,000 lbs
+        int rank = 1;
+        String name = "Whale Shark";
+        float length = 61.7f;
+        int maxMass = 47000;
+        int peak = 1;
+        String imageURL = "https://en.wikipedia.org/wiki/File:Similan_Dive_Center_-_great_whale_shark.jpg";
+        String binomialName = "Rhincodon Typus";
+        String taxonomicClass = "Chondrichthyes";
+        String comparisonURL = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Whaleshark_scale.jpg/250px-Whaleshark_scale.jpg";
+
+        new  Fish(rank, name, length, maxMass, imageURL, binomialName, taxonomicClass, comparisonURL);
+
+
+
+    }
 }
