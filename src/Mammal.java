@@ -1,4 +1,7 @@
+import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
 
 public class Mammal extends Animals{
     private int avgMass;
@@ -28,5 +31,25 @@ public class Mammal extends Animals{
 
     public String toString() {
         return getName() + " has a max mass of " + getMaxMass() + "lb";
+    }
+
+    public static void readMammalData() throws Exception {
+        File dataFile = new File("MammalData");
+        Scanner fileScanner = new Scanner(dataFile);
+        while (fileScanner.hasNextLine()) {
+            String data = fileScanner.nextLine();
+            String[] dataSegment = data.split("\t");
+            if (dataSegment[0].equals("Rank") || dataSegment[0].split(" ")[0].equals("in")) {
+                System.out.println("Line Skipped");
+            } else {
+                System.out.println(Arrays.toString(dataSegment));
+                int rank = Integer.parseInt(dataSegment[0]);
+                String name = dataSegment[1].split("\\[")[0];
+                float length = Float.parseFloat(dataSegment[4].split("\\(")[1].split("\\)")[0]);
+                int maxMass = Integer.parseInt(dataSegment[2].split("\\[")[0])*2205;
+                int avgMass = Integer.parseInt(dataSegment[3].split("\\[")[0])*2205;
+                new Mammal(rank, name, length, maxMass, avgMass);
+            }
+        }
     }
 }
