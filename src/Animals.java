@@ -47,7 +47,7 @@ public class Animals {
         this.length = length;
     }
 
-    public long getMaxMass() {
+    public int getMaxMass() {
         return maxMass;
     }
 
@@ -57,5 +57,24 @@ public class Animals {
 
     public String toString() {
         return getName() + " has a max mass of " + getMaxMass() + "lb";
+    }
+
+    public static void summarize() {
+        float avgLength = 0f;
+        int avgMaxMass = 0;
+
+        for (Animals animal: getAnimals()) {
+            avgLength += animal.getLength();
+            avgMaxMass += animal.getMaxMass();
+        }
+
+        System.out.println("\nThere are " + getAnimals().size() + " animals in the dataset");
+
+        System.out.println("The total length of the animals is " + avgLength + " feet\n" + "The total max mass of the animals is " + avgMaxMass + " lbs");
+
+        avgLength = avgLength / getAnimals().size();
+        avgMaxMass = avgMaxMass / getAnimals().size();
+
+        System.out.println("\nThe average length of the animals is " + avgLength + " feet\n" + "The average max mass of the animals is " + avgMaxMass + " lbs");
     }
 }

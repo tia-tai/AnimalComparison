@@ -12,5 +12,7 @@ public class Main {
         for (Animals animal: Animals.getAnimals()) {
             System.out.println(animal);
         }
+
+        Animals.summarize();
     }
 }

@@ -42,12 +42,11 @@ public class Mammal extends Animals{
             if (dataSegment[0].equals("Rank") || dataSegment[0].split(" ")[0].equals("in")) {
                 System.out.println("Line Skipped");
             } else {
-                System.out.println(Arrays.toString(dataSegment));
                 int rank = Integer.parseInt(dataSegment[0]);
                 String name = dataSegment[1].split("\\[")[0];
                 float length = Float.parseFloat(dataSegment[4].split("\\(")[1].split("\\)")[0]);
-                int maxMass = Integer.parseInt(dataSegment[2].split("\\[")[0])*2205;
-                int avgMass = Integer.parseInt(dataSegment[3].split("\\[")[0])*2205;
+                int maxMass = (int) Float.parseFloat(dataSegment[3].split("\\[")[0])*2205;
+                int avgMass = (int) Float.parseFloat(dataSegment[2].split("\\[")[0])*2205;
                 new Mammal(rank, name, length, maxMass, avgMass);
             }
         }
