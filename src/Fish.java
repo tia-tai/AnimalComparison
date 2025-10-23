@@ -3,19 +3,19 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Fish extends Animals {
-    private String imageURL;
+    //private String imageURL;
     private String binomialName;
     private String taxonomicClass;
-    private String comparisonURL;
+    //private String comparisonURL;
     static ArrayList<Fish> fishes = new ArrayList<Fish>();
 
 
-    public Fish(int rank, String name, float length, int maxMass, String imageURL, String binomialName, String taxonomicClass, String comparisonURL) {
+    public Fish(int rank, String name, float length, int maxMass, String binomialName, String taxonomicClass) {
         super(rank, name, length, maxMass);
-        this.imageURL = imageURL;
+        //this.imageURL = imageURL;
         this.binomialName = binomialName;
         this.taxonomicClass = taxonomicClass;
-        this.comparisonURL = comparisonURL;
+        //this.comparisonURL = comparisonURL;
         fishes.add(this);
     }
 
@@ -25,14 +25,6 @@ public class Fish extends Animals {
 
     public static void setFishes(ArrayList<Fish> fishes) {
         Fish.fishes = fishes;
-    }
-
-    public String getImageURL() {
-        return imageURL;
-    }
-
-    public void setImageURL(String imageURL) {
-        this.imageURL = imageURL;
     }
 
     public String getBinomialName() {
@@ -51,59 +43,54 @@ public class Fish extends Animals {
         this.taxonomicClass = taxonomicClass;
     }
 
-    public String getComparisonURL() {
-        return comparisonURL;
-    }
-
-    public void setComparisonURL(String comparisonURL) {
-        this.comparisonURL = comparisonURL;
-    }
-
     public String toString() {return getName() + " has a max mass of " + getMaxMass() + "lbs"; }
 
 
-    public static void readFishData() {
+    public static void readFishData() throws Exception {
         File myData = new File("FishData");
         Scanner myReader = new Scanner(myData);
+        myReader.nextLine();
+        myReader.nextLine();
+        myReader.nextLine();
+        myReader.nextLine();
+
         while (myReader.hasNextLine()) {
-            String firstLine = myReader.nextLine();
-            System.out.println(data);
+            // Line 1
+            //1	Whale shark	Rhincodon typus	Chondrichthyes
+            String wholeFirstLine = myReader.nextLine();
+            Scanner lineReader1 = new Scanner(wholeFirstLine);
+            lineReader1.useDelimiter("\t");
+            int rank = lineReader1.nextInt();
+            String name = lineReader1.next();
+            String binomialName = lineReader1.next();
+            String taxonomicClass = lineReader1.next();
 
-            Scanner lineScanner = new Scanner(dataLine);
-            lineScanner.useDelimiter("\t");
-            // 1     1   Whale Shark   61.7f   47,000 lbs
+            // Line 2
+            //        (Cartilaginous fish)
+            String wholeSecondLine = myReader.nextLine();
+            Scanner lineReader2 = new Scanner(wholeSecondLine);
+            lineReader2.useDelimiter("\t");
+            String taxonomicClass2 = lineReader2.next();
+            taxonomicClass = taxonomicClass + taxonomicClass2;
 
-            int rank = lineScanner.nextInt();
-            String name = lineScanner.nextInt();
+            // Line 3
+            //
+            String wholeThirdLine = myReader.nextLine();
+
+            // Line 4
+            //21.5 tonnes (47,000 lb)[7]	18.8 metres (61.7 ft)[8]
+
+            //String lengthChunk = lineScanner.next();
+            //lengthChunk = lengthChunk.replace();
             float length = lineScanner.nextInt();
+
+            //String massChunk = lineScanner.next();
+            //massChunk = massChunk.replace();
             int maxMass = lineScanner.nextInt();
-            int peak = lineScanner.nextInt();
 
-            String revenueChunk = lineScanner.next();
-            revenueChunk = revenueChunk.replace()
-            String imageURL = "https://en.wikipedia.org/wiki/File:Similan_Dive_Center_-_great_whale_shark.jpg";
-            String binomialName = "Rhincodon Typus";
-            String taxonomicClass = "Chondrichthyes";
-            String comparisonURL = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Whaleshark_scale.jpg/250px-Whaleshark_scale.jpg";
 
-            new  Fish(rank, name, length, maxMass, imageURL, binomialName, taxonomicClass, comparisonURL)
+
+            new  Fish(rank, name, length, maxMass, binomialName, taxonomicClass);
         }
-
-        //create a fish object
-        // 1     1   Whale Shark   61.7f   47,000 lbs
-        int rank = 1;
-        String name = "Whale Shark";
-        float length = 61.7f;
-        int maxMass = 47000;
-        int peak = 1;
-        String imageURL = "https://en.wikipedia.org/wiki/File:Similan_Dive_Center_-_great_whale_shark.jpg";
-        String binomialName = "Rhincodon Typus";
-        String taxonomicClass = "Chondrichthyes";
-        String comparisonURL = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Whaleshark_scale.jpg/250px-Whaleshark_scale.jpg";
-
-        new  Fish(rank, name, length, maxMass, imageURL, binomialName, taxonomicClass, comparisonURL);
-
-
-
     }
 }
