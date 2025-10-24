@@ -82,6 +82,7 @@ public class Fish extends Animals {
 
             //String lengthChunk = lineScanner.next();
             //lengthChunk = lengthChunk.replace();
+            Scanner lineScanner = null;
             float length = lineScanner.nextInt();
 
             //String massChunk = lineScanner.next();
