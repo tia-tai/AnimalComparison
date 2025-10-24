@@ -80,18 +80,32 @@ public class Fish extends Animals {
             // Line 4
             //21.5 tonnes (47,000 lb)[7]	18.8 metres (61.7 ft)[8]
 
-            //String lengthChunk = lineScanner.next();
-            //lengthChunk = lengthChunk.replace();
-            Scanner lineScanner = null;
-            float length = lineScanner.nextInt();
+            String wholeFourthLine = myReader.nextLine();
+            System.out.println("Reading: " + wholeFourthLine);
+            Scanner lineScanner4 = new Scanner(wholeFourthLine);
+            lineScanner4.useDelimiter("\t");
+
+            String massChunk = lineScanner4.next();
+            int foundSpace = massChunk.indexOf(" ");
+            massChunk = massChunk.substring(0,foundSpace);
+            float massDecimal = Float.parseFloat(massChunk);
+            int maxMass = (int)massDecimal * 2205;
+            System.out.println(maxMass);
+
+            String lengthChunk = lineScanner4.next();
+            int foundSpace2 = lengthChunk.indexOf(" ");
+            lengthChunk = lengthChunk.substring(0, foundSpace2);
+            float lengthDecimal2 = Float.parseFloat(lengthChunk);
+            float length2 = (int) lengthDecimal2 * 3;
+            System.out.println(length2);
+
 
             //String massChunk = lineScanner.next();
             //massChunk = massChunk.replace();
-            int maxMass = lineScanner.nextInt();
 
 
 
-            new  Fish(rank, name, length, maxMass, binomialName, taxonomicClass);
+            new  Fish(rank, name, length2, maxMass, binomialName, taxonomicClass);
         }
     }
 }
